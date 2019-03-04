@@ -3,14 +3,16 @@
         #:lem))
 (in-package :lem-my-init)
 
+;; テーマ
 (load-theme "emacs-dark")
 
-(setf *scroll-recenter-p* t)
-(setf (variable-value 'truncate-lines :global) nil)
+;; 行番号表示
 (setf (variable-value 'lem.line-numbers:line-numbers :global) t)
 
+;; 括弧をカラフルにする
 (lem-lisp-mode.paren-coloring:toggle-paren-coloring)
 
+;; Qlot (M-x slime-qlot-exec)
 (define-command slime-qlot-exec (directory)
   ((list (prompt-for-directory "Project directory: " (buffer-directory))))
   (change-directory directory)
