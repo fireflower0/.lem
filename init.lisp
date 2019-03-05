@@ -1,6 +1,7 @@
 (defpackage #:lem-my-init
   (:use #:cl
-        #:lem))
+        #:lem
+	#:lem-paredit-mode))
 (in-package :lem-my-init)
 
 ;; テーマ
@@ -11,6 +12,12 @@
 
 ;; 括弧をカラフルにする
 (lem-lisp-mode.paren-coloring:toggle-paren-coloring)
+
+;; スクロール時の動作
+(setf *scroll-recenter-p* nil)
+
+;; 行末で折り返さない
+(setf (variable-value 'truncate-lines :global) nil)
 
 ;; Qlot (M-x slime-qlot-exec)
 (define-command slime-qlot-exec (directory)
